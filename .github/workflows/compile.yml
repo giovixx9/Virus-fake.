@@ -2,7 +2,7 @@ name: Build Executable
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
   workflow_dispatch:
 
 jobs:
@@ -15,10 +15,10 @@ jobs:
 
     - name: Compilazione C++ con MinGW
       run: |
-        g++ main.cpp -o scherzo.exe -mwindows
+        g++ main.cpp -o virus.exe -mwindows
 
     - name: Carica il file .exe come Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Virus-Executable
-        path: Virus.exe
+        path: virus.exe
